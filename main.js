@@ -4,14 +4,29 @@ let overusedWords = ['really', 'very', 'basically'];
 let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 let storyWords = story.split(' ');
-// console.log(storyWords.length);
 
-let betterWords = storyWords.filter(function (paragraphWord, index) {
+let betterWords = storyWords.slice();
+
+betterWords.filter(function (paragraphWord, index) {
   unnecessaryWords.map(function (word) {
     if (word === paragraphWord) {
-      storyWords.splice(index, 1);
+      betterWords.splice(index, 1);
     }
   });
-  return storyWords;
+  return betterWords;
 });
-console.log(storyWords);
+console.log(betterWords);
+
+let overusedCount = overusedWords.reduce(function (acc, val) {
+  betterWords.forEach(function (word) {
+    if (val === word)  {
+      if (acc[val]) {
+        return acc[val] += 1;
+      } else {
+        return acc[val] = 1;
+      }
+    }
+  });
+  console.log(`You used ${val} ${acc[val]} times.`);
+  return acc;
+}, {});
