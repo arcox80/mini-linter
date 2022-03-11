@@ -5,3 +5,13 @@ let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 let storyWords = story.split(' ');
 // console.log(storyWords.length);
+
+let betterWords = storyWords.filter(function (paragraphWord, index) {
+  unnecessaryWords.map(function (word) {
+    if (word === paragraphWord) {
+      storyWords.splice(index, 1);
+    }
+  });
+  return storyWords;
+});
+console.log(storyWords);
