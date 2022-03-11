@@ -4,9 +4,9 @@ let overusedWords = ['really', 'very', 'basically'];
 let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 let storyWords = story.split(' ');
+console.log(storyWords.length);
 
 let betterWords = storyWords.slice();
-
 betterWords.filter(function (paragraphWord, index) {
   unnecessaryWords.map(function (word) {
     if (word === paragraphWord) {
@@ -16,6 +16,7 @@ betterWords.filter(function (paragraphWord, index) {
   return betterWords;
 });
 console.log(betterWords);
+
 
 let overusedCount = overusedWords.reduce(function (acc, val) {
   betterWords.forEach(function (word) {
@@ -30,3 +31,15 @@ let overusedCount = overusedWords.reduce(function (acc, val) {
   console.log(`You used ${val} ${acc[val]} times.`);
   return acc;
 }, {});
+
+const numOfSentences = array => {
+  let total = 0;
+  array.forEach(function (str) {
+    if (/.\?|.\.|.\!/g.test(str)) {
+    total += 1;
+    }
+  });
+  return total;
+};
+
+console.log(numOfSentences(betterWords));
