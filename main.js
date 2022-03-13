@@ -2,7 +2,6 @@ let story = 'Last weekend, I took literally the most beautiful bike ride of my l
 
 const overusedWords = ['really', 'very', 'basically'];
 const unnecessaryWords = ['extremely', 'literally', 'actually' ];
-
 let storyWords = story.split(' ');
 
 const betterWords = storyWords.filter(function (word) {
@@ -11,8 +10,6 @@ const betterWords = storyWords.filter(function (word) {
     }
 });
 
-console.log(`The word count is ${betterWords.length}.`);
-
 const numOfSentences = array => {
   let total = 0;
   array.forEach(function (str) {
@@ -20,10 +17,13 @@ const numOfSentences = array => {
     total += 1;
     }
   });
+  console.log(`The sentence count is ${total}.`);
   return total;
 };
 
-console.log(`The sentence count is ${numOfSentences(betterWords)}.`);
+console.log(betterWords.join(' '));
+console.log(`The word count is ${betterWords.length}.`);
+numOfSentences(betterWords);
 
 let overusedCount = overusedWords.reduce(function (acc, val) {
   betterWords.forEach(function (word) {
@@ -34,5 +34,3 @@ let overusedCount = overusedWords.reduce(function (acc, val) {
   console.log(`You used ${val} ${acc[val]} times.`);
   return acc;
 }, {});
-
-console.log(betterWords.join(' '));
