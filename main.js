@@ -7,18 +7,22 @@ const numOfSentences = function (array) {
     total += 1;
     }
   });
+  
   console.log(`The sentence count is ${total}.`);
+  
   return total;
 };
 
 let overusedCount = function (paragraph, overUsed) {
-  overUsed.reduce(function (acc, val) {
+  return count = overUsed.reduce(function (acc, val) {
   paragraph.forEach(function (word) {
     if (val === word)  {
       acc[val] ? acc[val] += 1 : acc[val] = 1;
     }
   });
+  
   console.log(`You used ${val} ${acc[val]} times.`);
+  
   return acc;
   }, {});
 };
@@ -34,10 +38,15 @@ const linter = function (str) {
       return word;
     }
   });
+
   console.log(betterWords.join(' '));
+  
   console.log(`The word count is ${betterWords.length}.`);
+  
   numOfSentences(betterWords);
+  
   overusedCount(betterWords, overusedWords);
+  
   return betterWords;
 };
 
